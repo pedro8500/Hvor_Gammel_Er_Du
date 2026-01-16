@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Age checker</title>
+<link rel="stylesheet" href="switch.css">
+<body>
+<div>
+    <h2 class="text">Hvor gammel er du?</h2>
+    <input class="alder" type="number" id="text" oninput="checkAge()" placeholder="Skriv alder">
+    <div class="alder1" id="result"></div>
+    <div id="image"></div>
+</div>
+<script>
+    function checkAge() {
+       let age = parseInt(document.getElementById("text").value);
+       let ageCategory;
+
+       if (age >= 1 && age <= 6) {
+           ageCategory = "For ung";
+       } else if (age >= 7 && age <= 12) {
+           ageCategory = "Ung";
+       } else if (age >= 13 && age <= 17) {
+           ageCategory = "Ungdom";
+       } else if (age >= 18 && age <= 60) {
+           ageCategory = "Voksen";
+       } else if (age >= 61 && age <= 100) {
+           ageCategory = "Gammel";
+       } else if (age >= 101 && age <= 150) {
+           ageCategory = "EldGammel";
+       } else {
+           ageCategory = "Utilgjengelig";
+       }
+
+       switch (ageCategory) {
+           case "For ung":
+               document.getElementById("result").innerHTML = `Du er for ung`;
+               document.body.style.backgroundColor = "#FFF8E1"
+               document.getElementById("image").innerHTML = `<img src="/bilder/baby.jpg" width="200" class="image">`
+       break;
+       case "Ung":
+           document.getElementById("result").innerHTML = `Du er ung`;
+           document.body.style.backgroundColor = "#FFB7C5"
+           document.getElementById("image").innerHTML = `<img src="/bilder/child.jpg" width="200" class="image">`
+       break;
+       case "Ungdom":
+           document.getElementById("result").innerHTML = "Du er Ungdom";
+           document.body.style.backgroundColor = "#00BFFF"
+           document.getElementById("image").innerHTML = `<img src="/bilder/teenager.jpg" width="200" class="image">`
+       break;
+           case "Voksen":
+               document.getElementById("result").innerHTML = `Du er Voksen`;
+               document.body.style.backgroundColor = "#4682B4"
+               document.getElementById("image").innerHTML = `<img src="/bilder/adult.jpg" width="200" class="image">`
+               break;
+           case "Gammel":
+               document.getElementById("result").innerHTML = `Du er Gammel`;
+               document.body.style.backgroundColor = "#BCD2A2"
+               document.getElementById("image").innerHTML = `<img src="/bilder/old.jpg" width="200" class="image">`
+               break;
+           case "EldGammel":
+               document.getElementById("result").innerHTML = `Du er EldGammel`;
+               document.body.style.backgroundColor = "#E6E6FA"
+               document.getElementById("image").innerHTML = `<img src="/bilder/superold.jpg" width="200" class="image">`
+               break;
+           case "Utilgjengelig":
+               document.getElementById("result").innerHTML = `Utilgjengelig`;
+               document.body.style.backgroundColor = "#808080"
+               document.getElementById("image").innerHTML = ``
+               break;
+       }
+
+    }
+</script>
+</body>
+</html>
